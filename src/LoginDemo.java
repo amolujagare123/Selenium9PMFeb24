@@ -20,5 +20,8 @@ public class LoginDemo {
         WebElement btnLogin = driver.findElement(By.name("submit"));
         btnLogin.click();
 
+       // driver.findElement(By.linkText("Add Customer")).click();
+        driver.findElement(By.partialLinkText("Add Cus")).click();
+
     }
 }
