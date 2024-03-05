@@ -25,6 +25,12 @@ public class ViewCustomer {
         driver.findElement(By.xpath("//a[contains(@href,'d_customer')]")).click();
         driver.findElement(By.xpath("//a[text()='View Customers']")).click();
 
+        String name = "Apoorva";
+
+        driver.findElement(By.xpath("//tr[td[text()='"+name+"']]//a[contains(@class,'edit')]")).click();
+
+        String myXpath = "//tr[td[text()='"+name+"']]//a[contains(@class,'edit')]";
+
 
 
     }

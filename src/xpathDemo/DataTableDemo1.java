@@ -19,6 +19,10 @@ public class DataTableDemo1 {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        driver.findElement(By.xpath("//tr[td[text()='Cara Stevens']]//i[contains(@class,'pencil')]")).click();
+        String custName = "Ashton Cox";
+      //  driver.findElement(By.xpath("//tr[td[text()='Cara Stevens']]//i[contains(@class,'pencil')]")).click();
+        driver.findElement(By.xpath("//tr[td[text()='"+ custName+"']]//i[contains(@class,'pencil')]")).click();
+
+
     }
 }
