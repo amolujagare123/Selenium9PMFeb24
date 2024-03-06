@@ -1,28 +1,34 @@
-package JunitDemo;
+package TestNGDemo;
 
-import org.junit.*;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-public class JunitDemo3 {
-    static WebDriver driver;
+public class TestNGDemo2 {
+    WebDriver driver;
 
-    @BeforeClass // method written below this annotation will run before first test method of the class
-    public static void openBrowser()
+
+    @BeforeMethod // method written below this annotation will run before every test method
+    public void openBrowser()
     {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
-    @AfterClass // method written below this annotation will run before last test method of the class
-    public static void closeBrowser()
+
+    @AfterMethod // method written below this annotation will run after every test method
+    public void closeBrowser()
     {
         driver.close();
     }
 
     @Test // annotation
-    public void loginTest1() throws InterruptedException {
+    public void loginTest1()
+    {
 
         driver.get("https://stock.scriptinglogic.org/");
 
@@ -32,13 +38,13 @@ public class JunitDemo3 {
         WebElement txtPassword = driver.findElement(By.xpath("//input[@id='login-password']"));
         txtPassword.sendKeys("admin");
 
-        Thread.sleep(4000);
         WebElement btnLogin = driver.findElement(By.xpath("//input[@type='submit']"));
-      //  btnLogin.click();
+        btnLogin.click();
     }
 
     @Test
-    public void loginTest2() throws InterruptedException {
+    public void loginTest2()
+    {
 
         driver.get("https://stock.scriptinglogic.org/");
 
@@ -47,13 +53,14 @@ public class JunitDemo3 {
 
         WebElement txtPassword = driver.findElement(By.xpath("//input[@id='login-password']"));
         txtPassword.sendKeys("dsdsd");
-        Thread.sleep(4000);
+
         WebElement btnLogin = driver.findElement(By.xpath("//input[@type='submit']"));
-    //    btnLogin.click();
+        btnLogin.click();
     }
 
     @Test
-    public void loginTest3() throws InterruptedException {
+    public void loginTest3()
+    {
 
         driver.get("https://stock.scriptinglogic.org/");
 
@@ -63,12 +70,8 @@ public class JunitDemo3 {
         WebElement txtPassword = driver.findElement(By.xpath("//input[@id='login-password']"));
         txtPassword.sendKeys("");
 
-        Thread.sleep(4000);
         WebElement btnLogin = driver.findElement(By.xpath("//input[@type='submit']"));
-      //  btnLogin.click();
-
-
-
+        btnLogin.click();
     }
 
 }
