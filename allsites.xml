@@ -1,0 +1,16 @@
+<suite name="TestSuite">
+
+    <test name="TestGroup1">
+        <classes>
+            <class name="TestNGDemo.Demo2.AISites" />
+            <class name="TestNGDemo.Demo2.SocialSites" />
+        </classes>
+    </test>
+
+    <test name="TestGroup2">
+        <classes>
+            <class name="TestNGDemo.Demo2.TutorialsSite" />
+        </classes>
+    </test>
+
+</suite>
