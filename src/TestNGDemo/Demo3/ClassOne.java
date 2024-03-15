@@ -1,4 +1,4 @@
-package TestNGDemo.Demo1;
+package TestNGDemo.Demo3;
 
 import org.testng.annotations.Test;
 
@@ -9,7 +9,7 @@ public class ClassOne {
     {
         System.out.println("classOneTest1");
     }
-    @Test (groups = "email")
+    @Test //(enabled = false)
     public void classOneTest2()
     {
         System.out.println("classOneTest2");

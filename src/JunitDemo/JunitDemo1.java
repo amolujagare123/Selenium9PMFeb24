@@ -5,14 +5,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class JunitDemo1 {
 
     @Test
     public void loginTest1()
     {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        WebDriver driver = new EdgeDriver();
+       // driver.manage().window().maximize();
         driver.get("https://stock.scriptinglogic.org/");
 
         WebElement txtUsername = driver.findElement(By.xpath("//input[@id='login-username']"));
