@@ -46,4 +46,63 @@ public class AddCustomerDemo {
 
         Assert.assertEquals(actual,expected,"wrong or no error message");
     }
+
+    @Test
+    public void addCustomerDemo2()
+    {
+        driver.findElement(By.xpath("//a[normalize-space()='Add Customer']")).click();
+
+        String customerName = "Mithilesh123";
+        driver.findElement(By.name("name")).sendKeys(customerName);
+        driver.findElement(By.name("address")).sendKeys("xyz");
+        driver.findElement(By.name("contact1")).sendKeys("434343");
+        driver.findElement(By.name("contact2")).sendKeys("43434");
+
+        driver.findElement(By.xpath("//input[@name='Submit']")).click();
+
+        String expected = "[ "+customerName+" ] Customer Details Added !";
+        String actual = "";
+        try {
+            actual = driver.findElement(By.xpath("//div[@class='confirmation-box round']")).getText();
+        }
+        catch (Exception e)
+        {
+
+        }
+        System.out.println("expected="+expected);
+        System.out.println("actual="+actual);
+
+        Assert.assertEquals(actual,expected,"wrong or no message");
+    }
+
+    @Test
+    public void addCustomerDemo3()
+    {
+        driver.findElement(By.xpath("//a[normalize-space()='Add Customer']")).click();
+
+        String customerName = "Mithilesh123";
+        driver.findElement(By.name("name")).sendKeys(customerName);
+        driver.findElement(By.name("address")).sendKeys("xyz");
+        driver.findElement(By.name("contact1")).sendKeys("434343");
+        driver.findElement(By.name("contact2")).sendKeys("43434");
+
+        driver.findElement(By.xpath("//input[@name='Submit']")).click();
+
+        String expected = "Customer Details Added";
+        String actual = "";
+        try {
+            actual = driver.findElement(By.xpath("//div[@class='confirmation-box round']")).getText();
+        }
+        catch (Exception e)
+        {
+
+        }
+
+        boolean result = actual.contains(expected);
+
+        System.out.println("expected="+expected);
+        System.out.println("actual="+actual);
+
+        Assert.assertTrue(result,"wrong or no message");
+    }
 }
