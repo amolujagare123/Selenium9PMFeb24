@@ -1,16 +1,2 @@
-<suite name="Project Name">
-
-    <test name="module 1">
-        <classes>
-            <class name="TestNGDemo.Demo1.ClassOne"/>
-            <class name="TestNGDemo.Demo1.ClassTwo"/>
-        </classes>
-    </test>
-
-    <test name="module 2">
-        <classes>
-            <class name="TestNGDemo.Demo1.ClassThree"/>
-        </classes>
-    </test>
-
-</suite>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/amolu/eclipse-workspace/Selenium9PMFeb24/src/TestNGDemo/listenerDemo/ClassOne.java"><classes><class name="TestNGDemo.Demo1.ClassOne"><methods><include name="classOneTest1"/><include name="classOneTest2"/><include name="classOneTest3"/></methods></class></classes></test><test verbose="2" preserve-order="true" name="C:/Users/amolu/eclipse-workspace/Selenium9PMFeb24/src/TestNGDemo/listenerDemo/ClassThree.java"><classes><class name="TestNGDemo.Demo1.ClassThree"><methods><include name="classThreeTest1"/><include name="classThreeTest2"/><include name="classThreeTest3"/></methods></class></classes></test><test verbose="2" preserve-order="true" name="C:/Users/amolu/eclipse-workspace/Selenium9PMFeb24/src/TestNGDemo/listenerDemo/ClassTwo.java"><classes><class name="TestNGDemo.Demo1.ClassTwo"><methods><include name="classTwoTest1"/><include name="classTwoTest2"/><include name="classTwoTest3"/></methods></class></classes></test></suite>

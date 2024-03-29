@@ -7,34 +7,25 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class AISites {
+public class AISites extends Base{
 
-    private WebDriver driver;
 
-    @BeforeClass
-    public  void openBrowser()
-    {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
-    @AfterClass
-    public  void closeBrowser()
-    {
-        driver.close();
-    }
 
     @Test
     public void openai() {
         driver.get("https://www.openai.com");
+
+        Assert.assertEquals(driver.getTitle(),"my tensorflow" ,
+                "this is not our page");
     }
 
-    @Test
+  /*  @Test
     public void tensorflow() {
         driver.get("https://www.tensorflow.org");
 
         Assert.assertEquals(driver.getTitle(),"my tensorflow" ,
                 "this is not our page");
-    }
+    }*/
 
     @Test
     public void pytorch() {
