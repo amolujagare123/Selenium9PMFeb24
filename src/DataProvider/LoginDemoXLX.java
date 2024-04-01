@@ -3,6 +3,8 @@ package DataProvider;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -45,35 +47,39 @@ public class LoginDemoXLX {
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
         // 3. get the sheet
-        XSSFSheet sheet = workbook.getSheet("Sheet1");
+        XSSFSheet sheet = workbook.getSheet("data with header");
 
         // 4. count the active rows
         int rowCount = sheet.getPhysicalNumberOfRows();
 
-        Object[][] data = new Object[rowCount][2];
+        Object[][] data = new Object[rowCount-1][2];
 
-        for (int i=0;i<rowCount;i++)
+        for (int i=0;i<rowCount-1;i++)
         {
-            XSSFRow row = sheet.getRow(i);
+            XSSFRow row = sheet.getRow(i+1);
 
-            data[i][0]=row.getCell(0).toString();
-            data[i][1]=row.getCell(1).toString();
+
+
+            XSSFCell username = row.getCell(0);
+
+            if (username == null)
+                data[i][0]= "";
+            else {
+                username.setCellType(CellType.STRING);
+                data[i][0] = username.toString();
+            }
+
+            XSSFCell password = row.getCell(1);
+            if (password == null)
+                data[i][1]= "";
+            else {
+                password.setCellType(CellType.STRING);
+                data[i][1] = password.toString();
+            }
+
+
         }
 
-
-
-
-       /* data[0][0]="admin";
-        data[0][1]="admin";
-
-        data[1][0]="invalid-1";
-        data[1][1]="invalid-1";
-
-        data[2][0]="invalid-2";
-        data[2][1]="invalid-2";
-
-        data[3][0]="invalid-3";
-        data[3][1]="invalid-3";*/
 
         return data;
     }
